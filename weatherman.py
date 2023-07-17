@@ -66,6 +66,7 @@ class ParsingData:
 
 def main():
 
+    
     arguments_len = len(sys.argv)
     type_index = 1
 
@@ -84,7 +85,7 @@ def main():
 
             results = Results()
             results.year_results(highest, lowest, humid)
-
+            
             Report.year_report(results)
             print('\n')
 
