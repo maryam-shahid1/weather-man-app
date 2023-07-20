@@ -1,6 +1,6 @@
 WeatherMan App Readme
 
-**Functionality:**
+** Functionality: **
 
 + weatherman.py: 
 WeatherReading: Data structure to hold each weather reading.
@@ -15,7 +15,7 @@ Report: Class for creating the reports given the Results data structure.
 Results: Data structure for holding the calculations results. 
 
 
-**Commands to run project:**
+** Commands to run project: **
 
 First, create a virtual environment and activate it using command:
 source virtual_env/bin/activate
