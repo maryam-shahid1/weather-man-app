@@ -3,16 +3,16 @@ WeatherMan App Readme
 **Functionality:**
 
 weatherman.py:  
-WeatherReading: Data structure to hold each weather reading.  
-ParsingData: Class for parsing the files and populating the WeatherReading data structure with  correct data types.  
-Main: Responsible for calling apppropriate methods to generate the required report.  
++ WeatherReading: Data structure to hold each weather reading.  
++ ParsingData: Class for parsing the files and populating the WeatherReading data structure with  correct data types.  
++ Main: Responsible for calling apppropriate methods to generate the required report.  
 
 calculations.py  
-ReportCalculations: Class for computing month or year report calculations given the WeatherReadings data structure.  
++ ReportCalculations: Class for computing month or year report calculations given the WeatherReadings data structure.  
 
 report.py:  
-Report: Class for creating the reports given the Results data structure.  
-Results: Data structure for holding the calculations results.  
++ Report: Class for creating the reports given the Results data structure.  
++ Results: Data structure for holding the calculations results.  
 
 
 **Commands to run project:**
