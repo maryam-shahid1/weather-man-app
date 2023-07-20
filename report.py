@@ -67,11 +67,11 @@ class Results:
     def year_results(self, highest, lowest, humid):
         self.highest_day = highest[0]
         self.highest_month = highest[1]
-        self.highest = lowest[2]
+        self.highest = highest[2]
 
         self.lowest_day = lowest[0]
         self.lowest_month = lowest[1]
-        self.lowest = humid[2]
+        self.lowest = lowest[2]
 
         self.humid_day = humid[0]
         self.humid_month = humid[1]

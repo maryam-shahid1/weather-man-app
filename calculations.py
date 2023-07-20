@@ -68,7 +68,7 @@ class ReportCalculations:
                     highest_temp_day = reading.day
 
                 if (reading.min_temp != '' and
-                        reading.min_temp < highest_temp):
+                        reading.min_temp < lowest_temp):
                     lowest_temp = reading.min_temp
                     lowest_temp_day = reading.day
 
