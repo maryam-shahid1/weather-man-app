@@ -7,6 +7,7 @@ from report import *
 
 
 def get_month(value):
+    ''' Returns month name corresponding to the given numerical value'''
     months = {
                 1: 'Jan', 2: 'Feb', 3: 'Mar',
                 4: 'Apr', 5: 'May', 6: 'Jun',
@@ -25,7 +26,14 @@ def main():
         report_type = sys.argv[type_index]
 
         if (report_type == '-e'):
+            '''Handling request for year's report'''
             year = sys.argv[i]
+            year_value = int(year)
+
+            if (year_value < 2004 or year_value > 2016):
+                print("Year out of range!")
+                break 
+
             file_name = "weatherfiles/Murree_weather_" + year
 
             parse = ParsingData()
@@ -41,11 +49,23 @@ def main():
             print('\n')
 
         elif report_type == '-a':
+            '''Handling request for month's report'''
             period = sys.argv[i]
             data = period.split('/')
             year = data[0]
+            year_value = int(year)
             month = int(data[1])
+            
+            if (year_value < 2004 or year_value > 2016):
+                print("Year out of range!")
+                break
+
+            if (month < 1 or month > 12):
+                print("Month out of range!")
+                break
+
             month = get_month(month)
+
             file_name = ("weatherfiles/Murree_weather_" + year + "_"
                          + month + ".txt")
 
@@ -61,10 +81,21 @@ def main():
             print('\n')
 
         elif report_type == '-c':
+            '''Handling request for month's charts'''
             period = sys.argv[i]
             data = period.split('/')
             year = data[0]
+            year_value = int(year)
             month = int(data[1])
+
+            if (year_value < 2004 or year_value > 2016):
+                print("Year out of range!")
+                break
+
+            if (month < 1 or month > 12):
+                print("Month out of range!")
+                break
+
             month = get_month(month)
             file_name = ("weatherfiles/Murree_weather_" + year + "_"
                          + month + ".txt")

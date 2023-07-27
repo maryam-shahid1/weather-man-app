@@ -1,4 +1,5 @@
 def get_month(value):
+    ''' Returns month corresponding to the given nmerical value.'''
     months = {
                 1: 'Jan', 2: 'Feb', 3: 'Mar',
                 4: 'Apr', 5: 'May', 6: 'Jun',
@@ -9,15 +10,19 @@ def get_month(value):
 
 
 def get_values(day, month, temp):
+    '''Compacts the readings into a single dictionary for better access.'''
     values = {"day": day, "month": month, "temp": temp}
     return values
 
 
 def get_day_and_month(date):
+    ''' Extracts day and month from a date.'''
     data = date.split('-')
-    day = data[2]
-    month = get_month(int(data[1]))
-    return day, month
+    date = {
+        "day": data[2],
+        "month": get_month(int(data[1]))
+    }
+    return date["day"], date["month"]
 
 
 class ReportCalculations:

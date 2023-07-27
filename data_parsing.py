@@ -4,6 +4,7 @@ import os
 
 
 class ParsingData:
+    '''Reads data from files and parses it'''
 
     def parsing_file_data(self, file):
         file_content = file.readlines()
@@ -12,29 +13,40 @@ class ParsingData:
 
         for i in range(1, file_size):
             data = file_content[i]
-            reading = data.split(',')
-            day = reading[0]
+            data = data.split(',')
+            
+            reading = {
+                "day": data[0],
+                "highest_temp": data[1],
+                "mean_temp": data[2],
+                "lowest_temp": data[3],
+                "humidity": data[8]
+                }
+            
+            day = reading["day"]
             max_temp = mean_temp = min_temp = mean_humidity = ''
-            if reading[1] != '' and reading[1] != ',':
-                max_temp = int(reading[1])
-            if reading[2] != '' and reading[2] != ',':
-                mean_temp = int(reading[2])
-            if reading[3] != '' and reading[3] != ',':
-                min_temp = int(reading[3])
-            if reading[8] != '' and reading[8] != ',':
-                mean_humidity = int(reading[8])
+            if reading["highest_temp"] != '' and reading["highest_temp"] != ',':
+                max_temp = int(reading["highest_temp"])
+            if reading["mean_temp"] != '' and reading["mean_temp"] != ',':
+                mean_temp = int(reading["mean_temp"])
+            if reading["lowest_temp"] != '' and reading["lowest_temp"] != ',':
+                min_temp = int(reading["lowest_temp"])
+            if reading["humidity"] != '' and reading["humidity"] != ',':
+                mean_humidity = int(reading["humidity"])
 
             list.append(WeatherReading(day, max_temp, mean_temp,
                                        min_temp, mean_humidity))
         return list
 
     def month_parsing(self, file_name):
+        '''Parses data according to month report requirements.'''
         with open(file_name, "r") as file:
             file = open(file_name, "r")
             list = self.parsing_file_data(file)
         return list
 
     def year_parsing(self, filename):
+        '''Parses data according to year report requirements.'''
         monthly_readings = []
         for i in range(1, 12):
             file_name = filename + '_' + get_month(i) + '.txt'

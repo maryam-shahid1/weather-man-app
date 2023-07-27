@@ -1,12 +1,15 @@
 class TerminalColors:
+    ''' Colors class for chart output. '''
     RED = '\033[31m'
     BLUE = '\033[34m'
     WHITE = '\033[37m'
 
 
 class Report:
-
+    ''' Generates requested reports and shows them on the terminal.'''
+    
     def year_report(readings):
+        '''Prints year's report on terminal.'''
         print("---- YEAR REPORT ----")
         print('Highest: ', readings.highest, 'C on ',
               readings.highest_day, readings.highest_month)
@@ -16,12 +19,14 @@ class Report:
               readings.humid_day, readings.humid_month)
 
     def month_report(readings):
+        '''Prints montht's report on terminal.'''
         print("----- MONTH REPORT ----")
         print('Highets Average: ', readings.highest_avg, 'C')
         print('Lowest Average: ', readings.lowest_avg, 'C')
         print('Average Mean Humidity: ', readings.humid_avg, '%')
 
     def month_chart(weather_readings):
+        '''Prints line by line chart on terminal.'''
 
         for i in range(len(weather_readings)):
             date = (weather_readings[i].day).split('-')
@@ -43,6 +48,7 @@ class Report:
                 print(TerminalColors.WHITE, " Temp:", min_temp, 'C', '\n')
 
     def month_chart_horizonral(weather_readings):
+        '''Prints horizontal chart on terminal.'''
 
         for i in range(len(weather_readings)):
             date = (weather_readings[i].day).split('-')
@@ -63,6 +69,7 @@ class Report:
 
 
 class Results:
+    '''Data structure to hold result values.'''
 
     def year_results(self, highest, lowest, humid):
         self.highest_day = highest["day"]
